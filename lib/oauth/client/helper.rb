@@ -11,7 +11,7 @@ module OAuth::Client
     def initialize(request, options = {})
       @request = request
       @options = options
-      if ENV["HTTPS"] == "on"
+      if ENV["HTTPS_ENABLED"] == "true"
         @options[:oauth_callback].gsub!(/http/,"https") rescue nil
       end
       @options[:signature_method] ||= 'HMAC-SHA1'
