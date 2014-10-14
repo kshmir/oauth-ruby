@@ -12,7 +12,7 @@ module OAuth::Client
       @request = request
       @options = options
       if Rails.env == "production"
-        @options[:oauth_callback].gsub!(/\?failure_redirect_to=%2F/,"/").gsub!(/http/,"https") rescue nil
+        @options[:oauth_callback].gsub!(/http/,"https") rescue nil
       end
       @options[:signature_method] ||= 'HMAC-SHA1'
     end
